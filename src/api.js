@@ -63,9 +63,16 @@ export async function fetchMeals() {
 
   const json = await response.json();
 
-  // Handle both data.meals and data array shapes
+  // Handle various data wrapper shapes from FreeAPI
   const data = json.data;
-  const rawMeals = Array.isArray(data) ? data : (data && Array.isArray(data.meals) ? data.meals : []);
+  let rawMeals = [];
+  if (Array.isArray(data)) {
+    rawMeals = data;
+  } else if (data && Array.isArray(data.meals)) {
+    rawMeals = data.meals;
+  } else if (data && Array.isArray(data.data)) {
+    rawMeals = data.data;
+  }
 
   return rawMeals.map(normaliseMeal);
 }
