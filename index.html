@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meals Explorer | FreeAPI</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="header-container">
+        <img src="assets/favicon.png" alt="Logo" class="logo-img" />
+        <h1>Meals Explorer</h1>
+      </div>
+    </header>
+
+    <!-- Controls bar -->
+    <div id="controls-bar">
+      <input
+        type="search"
+        id="search-input"
+        class="control-input"
+        aria-label="Search meals by name"
+        placeholder="Search for a delicious meal..."
+      />
+      <select
+        id="category-select"
+        class="control-input"
+        aria-label="Filter by category"
+      >
+        <option value="">All Categories</option>
+      </select>
+    </div>
+
+    <!-- Main content -->
+    <main>
+      <!-- Loading indicator -->
+      <div
+        id="loading-indicator"
+        class="status-container hidden"
+        role="status"
+        aria-live="polite"
+        aria-label="Loading meals"
+      >
+        <div class="spinner" aria-hidden="true"></div>
+        <p>Loading premium meals...</p>
+      </div>
+
+      <!-- Error message -->
+      <div
+        id="error-container"
+        class="status-container hidden"
+        role="alert"
+      >
+        <p id="error-message" class="error-text"></p>
+        <button id="retry-button" type="button" class="btn-primary">
+          Try Again
+        </button>
+      </div>
+
+      <!-- Meals grid -->
+      <div id="meals-grid" class="grid" aria-label="Meals grid" aria-live="polite"></div>
+    </main>
+
+    <!-- Meal detail modal -->
+    <dialog id="meal-modal" aria-modal="true" aria-labelledby="modal-meal-name">
+      <div class="modal-header">
+        <button
+          id="modal-close-btn"
+          type="button"
+          class="modal-close"
+          aria-label="Close meal details"
+        >
+          &times;
+        </button>
+      </div>
+      <div id="modal-content" class="modal-body"></div>
+    </dialog>
+
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>

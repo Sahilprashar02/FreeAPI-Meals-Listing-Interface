@@ -1,0 +1,15 @@
+{
+  "name": "meals-listing-interface",
+  "version": "1.0.0",
+  "description": "A zero-dependency static web app for browsing meals from the FreeAPI endpoint.",
+  "type": "module",
+  "scripts": {
+    "test": "node_modules/.bin/vitest --run",
+    "test:watch": "node_modules/.bin/vitest"
+  },
+  "devDependencies": {
+    "fast-check": "^3.22.0",
+    "jsdom": "^25.0.1",
+    "vitest": "^2.1.8"
+  }
+}
